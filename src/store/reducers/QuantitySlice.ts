@@ -13,7 +13,7 @@ export const quantitySlice= createSlice({
     name: 'quantity',
     initialState,
     reducers: {
-        quantityMinus(state,action:PayloadAction<number>){
+        quantityDec(state,action:PayloadAction<number>){
             if(state.quantityPrice>0) {
                 state.quantityPrice = state.quantityPrice - priceShoes
                 console.log(state.quantityPrice)
@@ -21,7 +21,7 @@ export const quantitySlice= createSlice({
                 state.quantityPrice=0
             }
         },
-        quantityPluse(state,action:PayloadAction<number>){
+        quantityInc(state,action:PayloadAction<number>){
             state.quantityPrice=state.quantityPrice+priceShoes
             console.log(state.quantityPrice)
         },

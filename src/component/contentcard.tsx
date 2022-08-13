@@ -23,8 +23,8 @@ function Contentcard(description:descriptionType){
     const{whiteBig}=imgSlice.actions
     const{yellowBig}=imgSlice.actions
     const{blackBig}=imgSlice.actions
-    const{quantityPluse}=quantitySlice.actions
-    const{quantityMinus}=quantitySlice.actions
+    const{quantityInc}=quantitySlice.actions
+    const{quantityDec}=quantitySlice.actions
     const dispatch=useDispatch()
 
     const decr = ()=>dispatch(decrement(1))
@@ -34,8 +34,8 @@ function Contentcard(description:descriptionType){
     const blue=()=>{dispatch(bluekBig(imgBig))}
     const yellow=()=>{dispatch(yellowBig(imgBig))}
     const black=()=>{dispatch(blackBig(imgBig))}
-    const pricePluse=()=>{dispatch(quantityPluse(quantityPrice))}
-    const priceMinus=()=>{dispatch(quantityMinus(quantityPrice))}
+    const pricePluse=()=>{dispatch(quantityInc(quantityPrice))}
+    const priceMinus=()=>{dispatch(quantityDec(quantityPrice))}
     const dec=()=>{
         decr()
         priceMinus()

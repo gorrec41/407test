@@ -1,9 +1,10 @@
 import {v1} from 'uuid';
 import {useState} from 'react';
-import { basketQuantity} from '../../store/reducers/UserSlice';
+import {basketQuantity, userSlice} from '../../store/reducers/UserSlice';
 import {useAppSelector} from '../../hooks/redux';
+import {useDispatch} from 'react-redux';
+import {quantitySlice} from '../../store/reducers/QuantitySlice';
 
-export let resault=0
 
 export type BasketItemTyp={
     id:string,
@@ -13,30 +14,25 @@ export type BasketItemTyp={
     price_shoes:number
 }
 
+
 function BasketItems() {
-    const {count}=useAppSelector(state => state.userReducer)
+    const dispatch=useDispatch()
+    const {decrement}=userSlice.actions;
+    const{quantityDec}=quantitySlice.actions
+    const decr = ()=>dispatch(decrement(1))
+
+    const priceMinus=()=>{dispatch(quantityDec(quantityPrice))}
+
+     const {count}=useAppSelector(state => state.userReducer)
     const {quantityPrice}=useAppSelector(state => state.quantityReducer)
     let [basketItems,setbasketItems]=useState(basketQuantity)
-    addresult()
-    function addresult(){
-        basketQuantity.map((f:BasketItemTyp)=>{
-            pricePlus(f.price_shoes)})
-        return
-    }
-    function priceMinus(price:number){
-        resault=resault-price
-    }
-    function pricePlus(price:number){
-        resault=resault+price
-    }
+
     function removeShoes(id:string,price:number) {
         setbasketItems(basketItems.filter(f=>f.id!==id))
-        basketQuantity.splice(1,1)
-        basketQuantity.map((f:BasketItemTyp)=>{
-        priceMinus(f.price_shoes)})
+        decr()
+        priceMinus()
     }
     const item = basketItems.map((m:BasketItemTyp)=>{
-        for(let i=0;i<count;i++){
             return(
                 <div key={ v1() } className="product_shoes">
                     <button onClick={()=>removeShoes(m.id,m.price_shoes)}>
@@ -52,7 +48,6 @@ function BasketItems() {
                     <p className="price_shoes">{m.price_shoes} p</p>
                 </div>
             )
-        }
     })
     return (
         <>

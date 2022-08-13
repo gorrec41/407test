@@ -18,13 +18,7 @@ export const userSlice= createSlice({
     initialState,
     reducers: {
         increment(state, action: PayloadAction<number>) {
-            state.count += action.payload;
-            if (state.count >= 1) {
-                basketQuantity.map((m: BasketItemTyp) => {
-                    const mb = basketQuantity.length
-                    basketQuantity.slice(mb)
-                })
-                for (let i = 0; i < state.count; i++) {
+            ++state.count
                     const idkey: string = String((new Date().getTime()) * Math.floor((Math.random() * 107700) + 1))
                     const shoes: BasketItemTyp = {
                         id: idkey,
@@ -34,20 +28,23 @@ export const userSlice= createSlice({
                         price_shoes: 12000
                     }
                     basketQuantity.push(shoes)
-                }
-            }
         },
         decrement(state, action: PayloadAction<number>) {
             if (state.count > 0) {
-                state.count -= action.payload;
-                state.quantity = state.count
+                --state.count
+                basketQuantity.splice(0,1)
             } else {
                 state.count = 0
-                state.quantity = state.count
+                if(basketQuantity.length>0){
+                    basketQuantity.splice(0,1)
+                }
             }
+            console.log(basketQuantity)
         },
         addbascets(state, action: PayloadAction<number>) {
             state.quantity = state.count
+
+
         },
           }
 })
