@@ -14,7 +14,7 @@ const initialState:ShoesState={
 export let basketQuantity:Array<BasketItemTyp>=[]
 
 export const userSlice= createSlice({
-    name:'quantity',
+    name:'shoes',
     initialState,
     reducers: {
         increment(state, action: PayloadAction<number>) {

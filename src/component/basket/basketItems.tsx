@@ -15,6 +15,7 @@ export type BasketItemTyp={
 
 function BasketItems() {
     const {count}=useAppSelector(state => state.userReducer)
+    const {quantityPrice}=useAppSelector(state => state.quantityReducer)
     let [basketItems,setbasketItems]=useState(basketQuantity)
     addresult()
     function addresult(){
@@ -58,7 +59,7 @@ function BasketItems() {
             <div key={v1()} className="basket_card">
                 {item}
             </div>
-            <p className="result">Итого:{resault} р</p>
+            <p className="result">Итого:{quantityPrice} р</p>
         </>
     )
 }

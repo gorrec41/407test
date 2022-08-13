@@ -8,12 +8,14 @@ import {useDispatch} from 'react-redux';
 import {descriptionType} from './card';
 import {Link} from "react-router-dom";
 import  {imgSlice} from '../store/reducers/ImgSlice';
-
+import {quantitySlice} from '../store/reducers/QuantitySlice'
+export const priceShoes=12000
 function Contentcard(description:descriptionType){
 
     const {count}=useAppSelector(state => state.userReducer)
     const {quantity}=useAppSelector(state => state.userReducer)
     const {imgBig}=useAppSelector(state=>state.imgReducer)
+    const {quantityPrice}=useAppSelector(state =>state.quantityReducer )
     const {increment}=userSlice.actions;
     const {decrement}=userSlice.actions;
     const {addbascets}=userSlice.actions;
@@ -21,6 +23,8 @@ function Contentcard(description:descriptionType){
     const{whiteBig}=imgSlice.actions
     const{yellowBig}=imgSlice.actions
     const{blackBig}=imgSlice.actions
+    const{quantityPluse}=quantitySlice.actions
+    const{quantityMinus}=quantitySlice.actions
     const dispatch=useDispatch()
 
     const decr = ()=>dispatch(decrement(1))
@@ -30,6 +34,16 @@ function Contentcard(description:descriptionType){
     const blue=()=>{dispatch(bluekBig(imgBig))}
     const yellow=()=>{dispatch(yellowBig(imgBig))}
     const black=()=>{dispatch(blackBig(imgBig))}
+    const pricePluse=()=>{dispatch(quantityPluse(quantityPrice))}
+    const priceMinus=()=>{dispatch(quantityMinus(quantityPrice))}
+    const dec=()=>{
+        decr()
+        priceMinus()
+    }
+    const inc=()=>{
+        incr()
+        pricePluse()
+    }
     return(
         <div className="content_card">
             <div className="shoes_images">
@@ -50,7 +64,7 @@ function Contentcard(description:descriptionType){
             </div>
             <div className="optiodiv">
                 <p className="price">
-                    12 000 <span>&#8381;</span>
+                    {priceShoes} <span>&#8381;</span>
                 </p>
                 <div className="options_colors">
                     <p className="selection_color">Цвет:</p>
@@ -69,9 +83,9 @@ function Contentcard(description:descriptionType){
                 </div>
                 <div className="order">
                     <div className="quantity_box">
-                        <button className="minus" onClick={decr}>-</button>
+                        <button className="minus" onClick={dec}>-</button>
                         <p className="quantity">{count}</p>
-                        <button className="plus" onClick={incr}>+</button>
+                        <button className="plus" onClick={inc}>+</button>
                     </div>
                     <p className="buy_click">Купить в 1 клик</p>
                     <div className="add_cart">
