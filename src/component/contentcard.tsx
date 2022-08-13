@@ -1,4 +1,4 @@
-import img1 from '../../src/img/black.jpg'
+
 import img2 from '../../src/img/white.jpg'
 import img3 from '../../src/img/blue.jpg'
 import img4 from '../../src/img/yellow.jpg'
@@ -7,55 +7,63 @@ import {userSlice} from '../store/reducers/UserSlice';
 import {useDispatch} from 'react-redux';
 import {descriptionType} from './card';
 import {Link} from "react-router-dom";
+import  {imgSlice} from '../store/reducers/ImgSlice';
 
 function Contentcard(description:descriptionType){
 
     const {count}=useAppSelector(state => state.userReducer)
+    const {quantity}=useAppSelector(state => state.userReducer)
+    const {imgBig}=useAppSelector(state=>state.imgReducer)
     const {increment}=userSlice.actions;
     const {decrement}=userSlice.actions;
-    const {addbascets}=userSlice.actions
+    const {addbascets}=userSlice.actions;
+    const{bluekBig}=imgSlice.actions
+    const{whiteBig}=imgSlice.actions
+    const{yellowBig}=imgSlice.actions
+    const{blackBig}=imgSlice.actions
     const dispatch=useDispatch()
-    const {quantity}=useAppSelector(state => state.userReducer)
+
     const decr = ()=>dispatch(decrement(1))
     const incr = ()=>dispatch(increment(1))
-    const addbasket=()=>{
-       dispatch(addbascets(quantity))
-    }
-
+    const addbasket=()=>{dispatch(addbascets(quantity))}
+    const white=()=>{dispatch(whiteBig(imgBig))}
+    const blue=()=>{dispatch(bluekBig(imgBig))}
+    const yellow=()=>{dispatch(yellowBig(imgBig))}
+    const black=()=>{dispatch(blackBig(imgBig))}
     return(
         <div className="content_card">
             <div className="shoes_images">
                 <div className="big_image">
-                    <img src={img1} alt="black shoes"/>
+                    <img className='images' src={imgBig} alt="white shoes"/>
                 </div>
-                <div className="wrap_small_images">
-                    <div className="white_img">
-                        <img src={img2} alt="white shoes"/>
+                <div className="wrap_small_images" >
+                    <div className="white_img" >
+                        <img src={img2} alt="white shoes" onClick={white}/>
                     </div>
-                    <div className="blue_img">
+                    <div className="blue_img" onClick={blue} >
                         <img src={img3} alt="blue shoes"/>
                     </div>
-                    <div className="yellow_img ">
+                    <div className="yellow_img " onClick={yellow}>
                         <img src={img4} alt="yellow shoes"/>
                     </div>
                 </div>
             </div>
-            <div className="options">
+            <div className="optiodiv">
                 <p className="price">
                     12 000 <span>&#8381;</span>
                 </p>
                 <div className="options_colors">
                     <p className="selection_color">Цвет:</p>
-                    <svg className="black" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="black" onClick={black} width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="15.5" cy="15.5" r="15.5" fill="#39393A"/>
                     </svg>
-                    <svg className="gray" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="gray" onClick={white} width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="15.5" cy="15.5" r="15.5" fill="#B9B3B0"/>
                     </svg>
-                    <svg className="blue" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="blue" onClick={blue} width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="15.5" cy="15.5" r="15.5" fill="#5D70CE"/>
                     </svg>
-                    <svg className="yellow" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="yellow"  onClick={yellow} width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="15.5" cy="15.5" r="15.5" fill="#FF9200"/>
                     </svg>
                 </div>

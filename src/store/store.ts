@@ -1,8 +1,10 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import userReducer from './reducers/UserSlice';
+import imgReducer from './reducers/ImgSlice';
 
 const rootReducer=combineReducers({
-    userReducer
+    userReducer,
+    imgReducer
 })
 export  const setupStore=()=>{
     return configureStore({

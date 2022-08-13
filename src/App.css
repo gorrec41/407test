@@ -77,6 +77,10 @@ ul{
   border: 1px solid #DBDBDB;
   border-radius: 15px;
 }
+.images{
+  width: 100%;
+  height: 100%;
+}
 .wrap_small_images{
   display: flex;
   gap: 15px;

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Card from '../component/card';
 import Basket from '../component/basket';
 
-function Rout(){
+export function Rout(){
     return (
         <Router>
                 <Routes>
@@ -13,4 +13,3 @@ function Rout(){
     );
 }
 
-export default Rout;

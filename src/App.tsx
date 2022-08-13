@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-
-import Rout from './rout/rout';
+import {Rout} from './rout/rout';
 function App() {
 
   return (
