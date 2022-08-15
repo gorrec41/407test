@@ -23,7 +23,6 @@ export const quantitySlice= createSlice({
         },
         quantityInc(state,action:PayloadAction<number>){
             state.quantityPrice=state.quantityPrice+priceShoes
-            console.log(state.quantityPrice)
         },
     }
 })

@@ -13,7 +13,7 @@ const initialState:imgState={
     idImg:v1()
 }
 export const imgSlice= createSlice({
-        name:'imgbigi',
+        name:'imgbig',
         initialState,
         reducers:{
             blackBig(state,action:PayloadAction<string>){
@@ -21,15 +21,15 @@ export const imgSlice= createSlice({
             },
             bluekBig(state,action:PayloadAction<string>){
                 state.imgBig=img1
-                console.log('bbbb')
+             
             },
             whiteBig(state,action:PayloadAction<string>){
                 state.imgBig=img2
-                console.log('wwww')
+             
             },
             yellowBig(state,action:PayloadAction<string>){
                 state.imgBig=img3
-                console.log('yyyy')
+          
             },
         }
 })

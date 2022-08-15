@@ -2,11 +2,13 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import userReducer from './reducers/UserSlice';
 import imgReducer from './reducers/ImgSlice';
 import quantityReducer from './reducers/QuantitySlice';
+import imgeBasketRedusser from './reducers/ImgBasket';
 
 const rootReducer=combineReducers({
     userReducer,
     imgReducer,
-    quantityReducer
+    quantityReducer,
+    imgeBasketRedusser
 })
 export  const setupStore=()=>{
     return configureStore({

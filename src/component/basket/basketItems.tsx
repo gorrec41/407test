@@ -5,7 +5,7 @@ import {useAppSelector} from '../../hooks/redux';
 import {useDispatch} from 'react-redux';
 import {quantitySlice} from '../../store/reducers/QuantitySlice';
 import {InputColor} from './inputcolor'
-
+import  {SelectImgColor} from './selectIImgColor'
 export type BasketItemTyp={
     id:string,
     basket_shoes:string,
@@ -20,10 +20,8 @@ function BasketItems() {
     const {decrement}=userSlice.actions;
     const{quantityDec}=quantitySlice.actions
     const decr = ()=>dispatch(decrement(1))
-
     const priceMinus=()=>{dispatch(quantityDec(quantityPrice))}
-
-     const {count}=useAppSelector(state => state.userReducer)
+    const {count}=useAppSelector(state => state.userReducer)
     const {quantityPrice}=useAppSelector(state => state.quantityReducer)
     let [basketItems,setbasketItems]=useState(basketQuantity)
 
@@ -44,6 +42,7 @@ function BasketItems() {
                     </button>
                     <p className="basket_shoes">{m.basket_shoes}</p>
                     <p className="quantity_shoes">{m.quantity_shoes}</p>
+                        <SelectImgColor/>
                         <InputColor/>
                     <p className="price_shoes">{m.price_shoes} p</p>
                 </div>
