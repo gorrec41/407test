@@ -326,7 +326,7 @@ ul{
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  color: #000000;
+  color: #8e6ddd;
 }
 .exitcard:hover{
   opacity: .8;
@@ -369,6 +369,12 @@ ul{
 .delete:hover{
   transform: scale(1.1);
   transition: .5s;
+}
+.inputcolor{
+  border:2px solid #333333;
+  padding: 4px;
+  border-radius: 4px;
+  background-color:#F5F5F5 ;
 }
 .result{
   font-family: 'Inter';

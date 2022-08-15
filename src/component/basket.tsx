@@ -12,7 +12,7 @@ function Basket() {
     return (
         <div className="basket">
             <div className="header_card">
-                <Link to='/' className="exitcard">к выбору товара</Link>
+                <Link to='/' className="exitcard"> &lt; к выбору товара</Link>
                 <h1 className="header_product">Корзина</h1>
             </div>
                      <BasketItems/>
