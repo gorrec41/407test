@@ -1,34 +1,33 @@
 
 import React, {ChangeEvent, useState } from 'react';
 
-let df='gg'
-
-// export const colorInp = (event: ChangeEvent<{ value: string }>) => {
-//        const color=event?.currentTarget?.value
-    
-//        df=color
-    
-//     }
-
+type optionItemType={
+    value:string,
+    text:string
+}
+const optionItem:Array<optionItemType>=[
+    {value:'black',text:'black'},
+    {value:'white',text:'white'},
+    {value:'blue',text:'blue'},
+    {value:'yellow',text:'yellow'},
+]
+const optionSelect=optionItem.map((m)=>{
+    return(
+        <option value={m.value}>{m.text}</option>
+    )
+})
 export function InputColor(){
-    const [state, setState] = useState<string>('black ');
+    const [text, setText] = useState('black ');
     const colorInp = (event: ChangeEvent<{ value: string }>) => {
-        // const value=event?.currentTarget?.value
         const value=event.target.value;
-        setState(value)
+        setText(value)
      }
       return(
       <>
-           <select className='inputcolor' id="selcolor" onChange={colorInp}>
-                <option selected disabled>---</option>
-                <option value='black '>black</option>
-                <option value='white'>white</option>
-                <option value='blue  '>blue</option>
-                <option value='yellow'>yellow</option>
-            </select>
-            <p >{state}</p>
-           
+        <select className='inputcolor' id="selcolor" defaultValue={'black'} onChange={colorInp}>
+            {optionSelect}
+        </select>
+        <p className='colortext'>{text}</p>       
       </>
-   
     )
 }
