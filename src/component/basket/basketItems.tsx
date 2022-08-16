@@ -4,8 +4,8 @@ import {basketQuantity, userSlice} from '../../store/reducers/UserSlice';
 import {useAppSelector} from '../../hooks/redux';
 import {useDispatch} from 'react-redux';
 import {quantitySlice} from '../../store/reducers/QuantitySlice';
-import {InputColor} from './inputcolor'
 import  {SelectImgColor} from './selectIImgColor'
+import InputSelectColor from './inputSelectColor'
 export type BasketItemTyp={
     id:string,
     basket_shoes:string,
@@ -43,7 +43,7 @@ function BasketItems() {
                     <p className="basket_shoes">{m.basket_shoes}</p>
                     <p className="quantity_shoes">{m.quantity_shoes}</p>
                         <SelectImgColor/>
-                        <InputColor/>
+                        <InputSelectColor/>
                     <p className="price_shoes">{m.price_shoes} p</p>
                 </div>
             )

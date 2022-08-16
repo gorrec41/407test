@@ -1,6 +1,6 @@
-import img from '../../../src/img/white.jpg'
+import img from '../../../src/img/black.jpg'
 import React from 'react';
-export const SelectImgColor=(value:any)=>{
+export const SelectImgColor=()=>{
     return(
         <>
             <div className="wrapimgcolor">

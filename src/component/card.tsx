@@ -21,6 +21,7 @@ function Card(){
                 manufacturer={description.manufacturer}
                 guarantee={description.guarantee}
             />
+            
         </div>
     )
 }
